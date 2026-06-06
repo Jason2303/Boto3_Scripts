@@ -16,24 +16,42 @@ On my journey to learn Boto3, I built 5 Python scripts to detect security issues
 
 ### S3 Audit
 Checks if the buckets within your account are encrypted and whether public ACL access is enabled.
-command: python cli.py s3-audit
+```
+
+python cli.py s3-audit
+```
 
 ### IAM Audit
 Audits IAM users within your account to check if MFA devices are enabled and how old their access keys are, to support regular key rotation and a strong security posture.
-command: python cli.py iam-audit
+```
+
+python cli.py iam-audit
+```
 
 ### GuardDuty
 Uses detectors to pull HIGH severity findings from GuardDuty and saves them to a local JSON file.
-command: python cli.py guardduty
+```
+
+python cli.py guardduty
+```
 
 ### EC2
 Programmatically starts or stops EC2 instances based on their tags.
-command: python cli.py ec2 --tag-key Environment --tag-value Production --action stop
-command: python cli.py ec2 --tag-key Environment --tag-value Production --action start
+```
+
+python cli.py ec2 --tag-key Environment --tag-value Production --action stop
+```
+```
+
+python cli.py ec2 --tag-key Environment --tag-value Production --action start
+```
 
 ### Security Hub
 Escalates HIGH and CRITICAL findings via SNS email notification and suppresses MEDIUM and LOW findings.
-command: python cli.py securityhub
+```
+
+python cli.py securityhub
+```
 
 ## Notes
 - The GuardDuty script has a 50-finding limit per run due to an API constraint on `get_findings`.
